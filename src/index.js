@@ -1,6 +1,5 @@
 // Your code here
-const db = "http://localhost:3000/films"
-
+const db =  "https://json-server-sg8o.onrender.com/films"
 document.addEventListener("DOMContentLoaded", () => {
     getMovies();
     document.querySelector("#buy-ticket").addEventListener("click", handleBuyTicket);
@@ -18,7 +17,7 @@ function getMovies() {
 
 function renderMovieList(movie) {
     const li = document.createElement("li");
-    li.textContent = $;{movie.title};
+    li.textContent = movie.title;
     li.id = "id" + movie.id;
     const ul = document.querySelector("#films");
     ul.appendChild(li);
