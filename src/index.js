@@ -1,5 +1,4 @@
 const db = "https://json-server-sg8o.onrender.com/film";
-
 document.addEventListener("DOMContentLoaded", () => {
     getMovies();
     document.querySelector("#buy-ticket").addEventListener("click", handleBuyTicket);
@@ -36,14 +35,14 @@ function handleMovieClick(movie) {
     info.querySelector("#runtime").textContent = runtime + " minutes";
     info.querySelector("#film-info").textContent = description;
     info.querySelector("#showtime").textContent = showtime;
-    info.querySelector("#ticket-num").textContent = capacity - movie-tickets_sold +"remaining tickets";
+    info.querySelector("#ticket-num").textContent = capacity-+movie.tickets_sold-1 + "remaining tickets";
 }
 
 function handleBuyTicket(e) {
     const ticketDiv = document.querySelector("#ticket-num");
     const tickets = parseInt(ticketDiv.textContent.split(" ")[0]);
     if (tickets > 0) {
-        ticketDiv.textContent = tickets - 1+ "remaining tickets";
+        ticketDiv.textContent = tickets - 1 + "remaining tickets";
     } else {
         alert("No more tickets!");
         e.target.classList.add("sold-out");
